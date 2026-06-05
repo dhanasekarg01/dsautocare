@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Auto Care – Premium Auto Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #E63329;
+    --dark:   #0D0D0D;
+    --steel:  #1A1A2E;
+    --gray:   #2A2A3E;
+    --light:  #F5F0E8;
+    --gold:   #F0A500;
+    --white:  #FFFFFF;
+    --font-head: 'Bebas Neue', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--light);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--red);
+    color: #fff;
+    padding: .4rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: #c0271e; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(135deg, rgba(13,13,13,.85) 40%, rgba(230,51,41,.15) 100%),
+      url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1600&q=80') center/cover no-repeat;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 0 8%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'DS';
+    position: absolute; right: -2%;  bottom: -8%;
+    font-family: var(--font-head);
+    font-size: clamp(18rem,30vw,40rem);
+    color: rgba(230,51,41,.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-tag {
+    background: var(--red);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: .3rem 1rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    line-height: .95;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .hero h1 span { color: var(--red); }
+  .hero p {
+    margin-top: 1.2rem;
+    font-size: 1.2rem;
+    max-width: 540px;
+    color: rgba(245,240,232,.8);
+    line-height: 1.6;
+  }
+  .hero-btns { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    padding: .8rem 2.2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: #c0271e; transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--light);
+    padding: .8rem 2.2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 2px solid rgba(245,240,232,.5);
+    cursor: pointer;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: border-color .2s, color .2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── STATS ── */
+  .stats-bar {
+    background: var(--red);
+    display: flex; justify-content: space-around;
+    padding: 1.5rem 5%; flex-wrap: wrap; gap: 1rem;
+  }
+  .stat { text-align: center; }
+  .stat-n {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat-l {
+    font-size: .85rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,.8);
+    font-weight: 600;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 8%; }
+  .sec-label {
+    font-size: .8rem;
+    letter-spacing: 4px;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: .5rem;
+  }
+  .sec-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.5rem,5vw,4.5rem);
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .sec-title span { color: var(--red); }
+  .sec-sub {
+    color: rgba(245,240,232,.65);
+    font-size: 1.05rem;
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--steel); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,.06);
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform .3s;
+  }
+  .service-card:hover { transform: translateY(-5px); border-color: rgba(230,51,41,.4); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: .5rem;
+  }
+  .service-card p { font-size: .95rem; color: rgba(245,240,232,.6); line-height: 1.6; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--dark); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap: 1rem;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,.05);
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+    display: block;
+  }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-item .overlay {
+    position: absolute; inset: 0;
+    background: rgba(230,51,41,.75);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .3s;
+    font-size: 2rem;
+  }
+  .gallery-item:hover .overlay { opacity: 1; }
+  .gallery-placeholder {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: .5rem;
+    font-size: .9rem;
+    color: rgba(245,240,232,.35);
+    height: 100%;
+    letter-spacing: 1px;
+  }
+  .gallery-placeholder span { font-size: 2rem; }
+
+  /* UPLOAD PANEL */
+  .upload-panel {
+    background: var(--steel);
+    border: 2px dashed rgba(230,51,41,.4);
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .upload-panel h3 {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: .5rem;
+  }
+  .upload-panel p { color: rgba(245,240,232,.55); font-size: .95rem; margin-bottom: 1.5rem; }
+  .upload-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .upload-input-wrap { position: relative; }
+  .upload-input-wrap input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  }
+  .upload-input-wrap label {
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,.15);
+    color: var(--light);
+    padding: .6rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: block;
+    transition: border-color .2s;
+  }
+  .upload-input-wrap:hover label { border-color: var(--gold); }
+  #upload-status { font-size: .9rem; color: var(--gold); margin-top: .5rem; min-height: 1.2rem; }
+
+  /* GitHub config */
+  .gh-config {
+    background: rgba(0,0,0,.3);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .gh-config h4 {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .gh-config .fields { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .gh-config input {
+    flex: 1; min-width: 200px;
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.15);
+    color: var(--light);
+    padding: .55rem 1rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    outline: none;
+    border-radius: 2px;
+  }
+  .gh-config input:focus { border-color: var(--red); }
+  .gh-config input::placeholder { color: rgba(245,240,232,.3); }
+  .gh-save-btn {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: .55rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: opacity .2s;
+  }
+  .gh-save-btn:hover { opacity: .85; }
+
+  /* ── OWNER ── */
+  #owner { background: var(--steel); }
+  .owner-card {
+    display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap;
+  }
+  .owner-photo-wrap {
+    flex-shrink: 0;
+    width: 220px; height: 260px;
+    position: relative;
+  }
+  .owner-photo-wrap::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px;
+    width: 100%; height: 100%;
+    background: var(--red);
+    z-index: 0;
+  }
+  .owner-photo-wrap img,
+  .owner-photo-placeholder {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    position: relative; z-index: 1;
+    display: block;
+  }
+  .owner-photo-placeholder {
+    background: var(--gray);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: .85rem;
+    color: rgba(245,240,232,.4);
+    letter-spacing: 1px;
+    gap: .5rem;
+    cursor: pointer;
+    border: 1px dashed rgba(255,255,255,.15);
+  }
+  .owner-photo-placeholder span { font-size: 3rem; }
+  .owner-info { flex: 1; min-width: 280px; }
+  .owner-info .role {
+    font-size: .8rem; letter-spacing: 3px;
+    color: var(--red); font-weight: 700; margin-bottom: .5rem;
+  }
+  .owner-info h2 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem,4vw,3.5rem);
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  .owner-info p { color: rgba(245,240,232,.7); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; }
+  .contact-list { display: flex; flex-direction: column; gap: .6rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: .8rem;
+    font-size: 1rem; color: var(--light);
+  }
+  .contact-item .icon {
+    width: 36px; height: 36px;
+    background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-item a { color: var(--gold); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  /* owner photo upload */
+  .owner-upload-btn {
+    display: block;
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.2);
+    color: var(--light);
+    padding: .5rem 1.2rem;
+    font-family: var(--font-body);
+    font-size: .85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: border-color .2s;
+    position: relative;
+  }
+  .owner-upload-btn input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  }
+  .owner-upload-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--dark); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .review-card {
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.06);
+    padding: 1.8rem;
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    color: var(--red);
+    opacity: .25;
+    position: absolute;
+    top: -.5rem; left: 1rem;
+    line-height: 1;
+  }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: .8rem; }
+  .review-text { color: rgba(245,240,232,.75); font-size: .95rem; line-height: 1.7; margin-bottom: 1rem; }
+  .reviewer { font-weight: 700; color: var(--white); font-size: .9rem; letter-spacing: 1px; }
+  .reviewer span { color: rgba(245,240,232,.4); font-weight: 400; }
+  /* add review */
+  .add-review {
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,.08);
+    padding: 2rem;
+  }
+  .add-review h3 {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  .form-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .form-row input,
+  .add-review textarea {
+    flex: 1; min-width: 200px;
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,.12);
+    color: var(--light);
+    padding: .65rem 1rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    outline: none;
+    border-radius: 2px;
+  }
+  .add-review textarea { width: 100%; height: 100px; resize: vertical; margin-bottom: 1rem; }
+  .add-review input:focus, .add-review textarea:focus { border-color: var(--red); }
+  .star-pick { display: flex; gap: .3rem; margin-bottom: 1rem; cursor: pointer; }
+  .star-pick span { font-size: 1.5rem; color: rgba(245,240,232,.25); transition: color .15s; }
+  .star-pick span.active { color: var(--gold); }
+
+  /* ── LOCATION ── */
+  #location { background: var(--steel); }
+  .location-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .location-info .info-item {
+    display: flex; gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .info-icon {
+    width: 44px; height: 44px;
+    background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .info-item h4 { font-size: .8rem; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: .2rem; }
+  .info-item p { color: var(--light); font-size: .95rem; line-height: 1.6; }
+  .map-embed {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border: 0;
+    filter: grayscale(60%) contrast(1.1);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    border-top: 2px solid var(--red);
+    padding: 3rem 8% 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .footer-brand .nav-logo { font-size: 2rem; }
+  .footer-brand p {
+    color: rgba(245,240,232,.45);
+    font-size: .9rem;
+    margin-top: .5rem;
+    max-width: 260px;
+    line-height: 1.6;
+  }
+  .footer-links h4 {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .footer-links a {
+    display: block;
+    color: rgba(245,240,232,.5);
+    text-decoration: none;
+    font-size: .9rem;
+    margin-bottom: .4rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    background: #080808;
+    text-align: center;
+    padding: 1rem 8%;
+    font-size: .85rem;
+    color: rgba(245,240,232,.25);
+    border-top: 1px solid rgba(255,255,255,.05);
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--red);
+    color: #fff;
+    padding: .8rem 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: 1px;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    section { padding: 4rem 5%; }
+    .location-wrap { grid-template-columns: 1fr; }
+    .owner-photo-wrap { width: 160px; height: 200px; }
+  }
+
+  /* fade-in animation */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .6s, transform .6s; }
+  .fade-up.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>DS</span> AUTO CARE</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#owner">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+  </div>
+  <a href="tel:+917305873461" class="nav-cta">CALL NOW</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-tag">⚙️ TRUSTED AUTO WORKSHOP</div>
+  <h1>DS AUTO<br><span>CARE</span></h1>
+  <p>Expert mechanical service you can trust. From diagnostics to full repairs — we keep your vehicle running at its best.</p>
+  <div class="hero-btns">
+    <a href="tel:+917305873461" class="btn-primary">📞 BOOK SERVICE</a>
+    <a href="#services" class="btn-outline">OUR SERVICES</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar fade-up">
+  <div class="stat"><div class="stat-n">2+</div><div class="stat-l">YEARS EXPERIENCE</div></div>
+  <div class="stat"><div class="stat-n">50+</div><div class="stat-l">HAPPY CUSTOMERS</div></div>
+  <div class="stat"><div class="stat-n">65+</div><div class="stat-l">VEHICLES SERVICED</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">SATISFACTION</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="sec-label fade-up">WHAT WE DO</p>
+  <h2 class="sec-title fade-up">OUR <span>SERVICES</span></h2>
+  <p class="sec-sub fade-up">Full-range auto care under one roof — handled by certified professionals with genuine parts.</p>
+  <div class="services-grid fade-up">
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Engine Repair</h3>
+      <p>Complete engine diagnostics, overhauls and precision repairs for all vehicle types.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛞</div>
+      <h3>Tyre & Wheel</h3>
+      <p>Tyre replacement, balancing, alignment and rim repair services.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛢️</div>
+      <h3>Oil & Fluids</h3>
+      <p>Engine oil, brake fluid, coolant and transmission fluid change with genuine products.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Electrical</h3>
+      <p>Battery, wiring, ECU diagnostics and full electrical system repairs.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">❄️</div>
+      <h3>AC Service</h3>
+      <p>Air conditioning gas refill, compressor service and complete AC overhaul.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏎️</div>
+      <h3>Full Service</h3>
+      <p>Comprehensive multi-point vehicle inspection and complete servicing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <p class="sec-label fade-up">SHOP & WORK</p>
+  <h2 class="sec-title fade-up">PHOTO <span>GALLERY</span></h2>
+  <p class="sec-sub fade-up">Upload photos of your shop and work. Photos are stored securely on GitHub.</p>
+
+  <!-- GitHub Config -->
+  <div class="gh-config fade-up">
+    <h4>⚙️ GITHUB STORAGE CONFIG</h4>
+    <div class="fields">
+      <input id="gh-token" type="password" placeholder="GitHub Personal Access Token">
+      <input id="gh-repo" type="text" placeholder="username/repository (e.g. dhanasekar/ds-autocare)">
+      <input id="gh-branch" type="text" placeholder="Branch (default: main)" value="main">
+      <button class="gh-save-btn" onclick="saveGHConfig()">SAVE CONFIG</button>
+    </div>
+    <p style="margin-top:.8rem;font-size:.8rem;color:rgba(245,240,232,.35);">
+      ℹ️ Token is saved locally in your browser. Create a token at github.com → Settings → Developer settings → Personal access tokens (needs <strong>repo</strong> scope).
+    </p>
+  </div>
+
+  <!-- Upload Panel -->
+  <div class="upload-panel fade-up">
+    <h3>📸 UPLOAD SHOP PHOTOS</h3>
+    <p>Select images to upload to GitHub gallery storage</p>
+    <div class="upload-row">
+      <div class="upload-input-wrap">
+        <input type="file" id="gallery-file-input" accept="image/*" multiple onchange="handleGalleryUpload(event)">
+        <label>📂 Choose Photos</label>
+      </div>
+      <select id="photo-type" style="background:var(--gray);border:1px solid rgba(255,255,255,.15);color:var(--light);padding:.6rem 1rem;font-family:var(--font-body);font-size:.95rem;border-radius:2px;outline:none;">
+        <option value="shop">Shop Photo</option>
+        <option value="work">Work in Progress</option>
+        <option value="before-after">Before / After</option>
+        <option value="team">Team</option>
+      </select>
+    </div>
+    <div id="upload-status"></div>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div class="gallery-grid fade-up" id="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span>🔧</span>Shop photo will appear here</div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span>🚗</span>Upload your first photo</div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span>⚙️</span>Work gallery</div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER -->
+<section id="owner">
+  <p class="sec-label fade-up">MEET THE OWNER</p>
+  <h2 class="sec-title fade-up">ABOUT <span>US</span></h2>
+  <div class="owner-card fade-up">
+    <div class="owner-photo-wrap">
+      <div class="owner-photo-placeholder" id="owner-placeholder" onclick="document.getElementById('owner-photo-input').click()">
+        <span>👤</span>
+        <div>Click to upload<br>owner photo</div>
+      </div>
+      <img id="owner-photo-img" src="" alt="Dhanasekar" style="display:none; width:100%; height:100%; object-fit:cover; position:relative; z-index:1;">
+    </div>
+    <div class="owner-info">
+      <p class="role">FOUNDER & CHIEF MECHANIC</p>
+      <h2>Dhanasekar</h2>
+      <p>
+        With over a decade of hands-on experience in the automotive industry, Dhanasekar founded DS Auto Care with a simple mission: honest service, expert repairs, and customer satisfaction above all. Every vehicle that enters the workshop receives the same level of care and attention to detail.
+      </p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <div><a href="tel:+917305873461">+91 73058 73461</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">✉️</div>
+          <div><a href="mailto:dhanasekarg112@gmail.com">dhanasekarg112@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div>Available via map below</div>
+        </div>
+      </div>
+      <label class="owner-upload-btn">
+        📷 UPLOAD OWNER PHOTO
+        <input type="file" id="owner-photo-input" accept="image/*" onchange="handleOwnerPhoto(event)">
+      </label>
+      <div id="owner-upload-status" style="font-size:.85rem;color:var(--gold);margin-top:.5rem;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <p class="sec-label fade-up">CUSTOMER FEEDBACK</p>
+  <h2 class="sec-title fade-up">REVIEWS <span>&</span> RATINGS</h2>
+  <p class="sec-sub fade-up">Don't take our word for it — hear from our satisfied customers.</p>
+  <div class="reviews-grid fade-up" id="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Excellent service! My car's AC was completely gone, they fixed it in a day. Honest pricing and very professional.</p>
+      <div class="reviewer">Karthik R. <span>· Orathanadu</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Dhanasekar brother is very knowledgeable. He diagnosed my engine problem quickly when two other shops couldn't figure it out.</p>
+      <div class="reviewer">Reeka G. <span>· Therkku Natham</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Fair price, good work. Oil change and full service done perfectly. Will definitely come back for future service.</p>
+      <div class="reviewer">Selvam K. <span>· Eachankottai</span></div>
+    </div>
+  </div>
+
+  <!-- Add Review -->
+  <div class="add-review fade-up">
+    <h3>✍️ WRITE A REVIEW</h3>
+    <div class="form-row">
+      <input type="text" id="rev-name" placeholder="Your Name">
+      <input type="text" id="rev-location" placeholder="Your Location (City)">
+    </div>
+    <div class="star-pick" id="star-pick">
+      <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span>
+      <span data-v="4">★</span><span data-v="5">★</span>
+    </div>
+    <textarea id="rev-text" placeholder="Share your experience with DS Auto Care…"></textarea>
+    <button class="btn-primary" onclick="submitReview()">SUBMIT REVIEW</button>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <p class="sec-label fade-up">FIND US</p>
+  <h2 class="sec-title fade-up">SHOP <span>LOCATION</span></h2>
+  <div class="location-wrap fade-up">
+    <div class="location-info">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>ADDRESS</h4>
+          <p>DS Auto Care Workshop<br>Thanjavur, Tamil Nadu, India</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <h4>WORKING HOURS</h4>
+          <p>Monday – Saturday<br>8:00 AM – 7:00 PM<br>Sunday: 9:00 AM – 2:00 PM</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>CONTACT</h4>
+          <p><a href="tel:+917305873461" style="color:var(--gold);">+91 73058 73461</a><br>
+          <a href="mailto:dhanasekarg112@gmail.com" style="color:var(--gold);">dhanasekarg112@gmail.com</a></p>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/Yip9ZV2YPomjVHZ59" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1rem;">
+        🗺️ GET DIRECTIONS
+      </a>
+    </div>
+    <div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7842.201421688579!2d79.18581604056989!3d10.649283757967288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baabb554dc204b1%3A0xc1f1908dd64696bc!2sTHERKKU%20NATHAM!5e0!3m2!1sen!2sin!4v1780662242773!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo"><span>DS</span> AUTO CARE</div>
+    <p>Your trusted auto workshop in Thanjavur. Expert repairs, honest pricing, guaranteed satisfaction.</p>
+  </div>
+  <div class="footer-links">
+    <h4>QUICK LINKS</h4>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#owner">About Owner</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+  </div>
+  <div class="footer-links">
+    <h4>CONTACT</h4>
+    <a href="tel:+917305873461">📞 +91 73058 73461</a>
+    <a href="mailto:dhanasekarg112@gmail.com">✉️ dhanasekarg112@gmail.com</a>
+    <a href="#location">📍 Thanjavur, Tamil Nadu</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 2026 DS Auto Care. All rights reserved. | Developed By GKTechspace
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── UTILITIES ──
+function showToast(msg, color = 'var(--red)') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── INTERSECTION OBSERVER (fade-up) ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── GITHUB CONFIG ──
+let ghConfig = JSON.parse(localStorage.getItem('gh_config') || '{}');
+if (ghConfig.token) document.getElementById('gh-token').value = ghConfig.token;
+if (ghConfig.repo)  document.getElementById('gh-repo').value  = ghConfig.repo;
+if (ghConfig.branch) document.getElementById('gh-branch').value = ghConfig.branch;
+
+function saveGHConfig() {
+  ghConfig = {
+    token:  document.getElementById('gh-token').value.trim(),
+    repo:   document.getElementById('gh-repo').value.trim(),
+    branch: document.getElementById('gh-branch').value.trim() || 'main'
+  };
+  localStorage.setItem('gh_config', JSON.stringify(ghConfig));
+  showToast('✅ GitHub config saved!', '#2e7d32');
+}
+
+// ── UPLOAD TO GITHUB ──
+async function uploadToGitHub(base64Data, filename, folder = 'gallery') {
+  const { token, repo, branch } = ghConfig;
+  if (!token || !repo) throw new Error('GitHub config missing! Please fill in token and repo.');
+  const path = `${folder}/${filename}`;
+  // Check if file exists (to get SHA for update)
+  let sha = null;
+  try {
+    const check = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      headers: { Authorization: `token ${token}` }
+    });
+    if (check.ok) { const d = await check.json(); sha = d.sha; }
+  } catch {}
+
+  const body = { message: `Add ${filename}`, content: base64Data, branch };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) { const err = await res.json(); throw new Error(err.message); }
+  const data = await res.json();
+  return data.content.download_url;
+}
+
+// ── GALLERY UPLOAD ──
+async function handleGalleryUpload(event) {
+  const files = event.target.files;
+  if (!files.length) return;
+  const type = document.getElementById('photo-type').value;
+  const status = document.getElementById('upload-status');
+  status.textContent = `⏳ Uploading ${files.length} photo(s)…`;
+
+  let uploaded = 0;
+  for (const file of files) {
+    try {
+      const base64 = await fileToBase64(file);
+      const pureB64 = base64.split(',')[1];
+      const filename = `${type}_${Date.now()}_${file.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`;
+      const url = await uploadToGitHub(pureB64, filename, 'gallery');
+      addGalleryItem(url, type, filename);
+      uploaded++;
+      status.textContent = `⏳ Uploaded ${uploaded}/${files.length}…`;
+    } catch (err) {
+      showToast('❌ ' + err.message);
+      status.textContent = '❌ ' + err.message;
+      return;
+    }
+  }
+  status.textContent = `✅ ${uploaded} photo(s) uploaded to GitHub!`;
+  showToast(`✅ ${uploaded} photo(s) uploaded!`, '#2e7d32');
+}
+
+function addGalleryItem(url, type, name) {
+  const grid = document.getElementById('gallery-grid');
+  // Remove placeholders if first real photo
+  const placeholders = grid.querySelectorAll('.gallery-item .gallery-placeholder');
+  if (placeholders.length === grid.querySelectorAll('.gallery-item').length) grid.innerHTML = '';
+
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `
+    <img src="${url}" alt="${type}" loading="lazy">
+    <div class="overlay">🔍</div>
+  `;
+  item.querySelector('img').onclick = () => window.open(url, '_blank');
+  grid.appendChild(item);
+}
+
+// ── OWNER PHOTO UPLOAD ──
+async function handleOwnerPhoto(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const status = document.getElementById('owner-upload-status');
+  status.textContent = '⏳ Uploading owner photo…';
+  try {
+    const base64 = await fileToBase64(file);
+    const pureB64 = base64.split(',')[1];
+    const filename = `owner_${Date.now()}.jpg`;
+    const url = await uploadToGitHub(pureB64, filename, 'owner');
+    document.getElementById('owner-placeholder').style.display = 'none';
+    const img = document.getElementById('owner-photo-img');
+    img.src = url; img.style.display = 'block';
+    status.textContent = '✅ Owner photo uploaded!';
+    showToast('✅ Owner photo saved to GitHub!', '#2e7d32');
+  } catch (err) {
+    status.textContent = '❌ ' + err.message;
+    showToast('❌ ' + err.message);
+  }
+}
+
+// ── HELPER: file → base64 ──
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = () => rej(new Error('File read failed'));
+    r.readAsDataURL(file);
+  });
+}
+
+// ── STAR PICKER ──
+let selectedStars = 5;
+const stars = document.querySelectorAll('#star-pick span');
+stars.forEach(s => {
+  s.addEventListener('mouseover', () => {
+    stars.forEach((x, i) => x.classList.toggle('active', i < +s.dataset.v));
+  });
+  s.addEventListener('click', () => {
+    selectedStars = +s.dataset.v;
+    stars.forEach((x, i) => x.classList.toggle('active', i < selectedStars));
+  });
+});
+document.getElementById('star-pick').addEventListener('mouseleave', () => {
+  stars.forEach((x, i) => x.classList.toggle('active', i < selectedStars));
+});
+// default 5 stars
+stars.forEach(x => x.classList.add('active'));
+
+// ── SUBMIT REVIEW ──
+function submitReview() {
+  const name = document.getElementById('rev-name').value.trim();
+  const loc  = document.getElementById('rev-location').value.trim();
+  const text = document.getElementById('rev-text').value.trim();
+  if (!name || !text) { showToast('⚠️ Please fill in name and review.'); return; }
+  const starStr = '★'.repeat(selectedStars) + '☆'.repeat(5 - selectedStars);
+  const card = document.createElement('div');
+  card.className = 'review-card';
+  card.innerHTML = `
+    <div class="stars">${starStr}</div>
+    <p class="review-text">${text.replace(/</g,'&lt;')}</p>
+    <div class="reviewer">${name.replace(/</g,'&lt;')} <span>${loc ? '· ' + loc.replace(/</g,'&lt;') : ''}</span></div>
+  `;
+  document.getElementById('reviews-grid').prepend(card);
+  document.getElementById('rev-name').value = '';
+  document.getElementById('rev-location').value = '';
+  document.getElementById('rev-text').value = '';
+  showToast('✅ Review submitted! Thank you 🙏', '#2e7d32');
+}
+</script>
+</body>
+</html>
